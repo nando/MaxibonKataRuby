@@ -1,5 +1,5 @@
 # MaxibonKataRuby
-![Karumi logo][karumilogo] Kata Maxibon for Ruby. [![Build Status](https://travis-ci.org/Karumi/MaxibonKataRuby.svg?branch=master)](https://travis-ci.org/Karumi/MaxibonKataRuby)
+![Karumi logo][karumilogo] Kata Maxibon for Ruby. [![Build Status](https://travis-ci.org/Karumi/MaxibonKataRuby.svg?branch=master)](https://travis-ci.org/nando/MaxibonKataRuby)
 ==================================================
 
 - We are here to practice [property based testing][property-based-testing].
@@ -51,7 +51,7 @@ Your task as Ruby Developer is to resolve this problem or test an already implem
 
 # License
 
-Copyright 2016 Karumi
+Copyright 2018 Karumi
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
