@@ -3,7 +3,7 @@
 ==================================================
 
 - We are here to practice [property based testing][property-based-testing].
-- We are going to use [JUnit-QuickCheck][junit-quickcheck] to write our tests.
+- We are going to use [Rantly][rantly] (with Minitest) to write our tests.
 - We are going to practice pair programming.
 
 During this kata we will try to find how to use property based testing from different points of view:
@@ -49,7 +49,7 @@ Your task as Ruby Developer is to resolve this problem or test an already implem
 
 **This repository is ready to build the application, pass the checkstyle and your tests in Travis-CI environments.**
 
-#License
+# License
 
 Copyright 2016 Karumi
 
