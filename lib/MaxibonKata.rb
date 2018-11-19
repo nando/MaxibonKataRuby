@@ -1,0 +1,1 @@
+require "./lib/MaxibonKata/KarumiHQs"
