@@ -23,4 +23,20 @@ describe MaxibonKata::KarumiHQs do
     }
   end
 
+  it "should buy 10 more maxibons if there are less than 3 in the fridge" do
+    property_of {
+      MaxibonKata::Developer.new sized( 12 ){ string( :alpha ) },
+                                 range( 8, 1000 )
+    }.check { | developer |
+      office = MaxibonKata::KarumiHQs.new
+      initial_maxibons = office.maxibonsLeft
+
+      office.openFridge developer
+
+      expected_maxibons = calculate_maxibons_left(initial_maxibons, developer)
+
+      office.maxibonsLeft.must_equal expected_maxibons
+    }
+  end
+
 end
