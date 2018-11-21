@@ -4,14 +4,17 @@ module MaxibonKata
     MAX_MAXIBONS = 10
 
     attr_reader :maxibonsLeft
+    attr_reader :chat
 
-    def initialize
+    def initialize( chat = nil )
       @maxibonsLeft = 10
+      @chat = chat
     end
 
     def openFridge( developer )
       grab_maxibons developer
       if should_buy_more_maxibons?
+        notify_we_should_buy_maxibon( developer ) if @chat
         buy_maxibons
       end
     end
@@ -28,6 +31,10 @@ module MaxibonKata
                       else
                         @maxibonsLeft - developer.maxibonsToGrab
                       end
+    end
+
+    def notify_we_should_buy_maxibon( developer )
+      @chat.sendMessage "Hi guys, I'm #{developer.name}. We need more maxibons!"
     end
 
     def buy_maxibons
