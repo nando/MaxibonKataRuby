@@ -66,7 +66,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 
 [karumilogo]: https://cloud.githubusercontent.com/assets/858090/11626547/e5a1dc66-9ce3-11e5-908d-537e07e82090.png
-[tcklogo]: https://avatars0.githubusercontent.com/u/1177560
+[tcklogo]: https://avatars0.githubusercontent.com/u/1177560?s=40
 [property-based-testing]: http://es.slideshare.net/ScottWlaschin/an-introduction-to-property-based-testing
 [rantly]: https://rubygems.org/gems/rantly
 [maxibon]: ./art/maxibon.jpg
