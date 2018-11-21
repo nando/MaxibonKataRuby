@@ -26,12 +26,12 @@ describe MaxibonKata::Developer do
       davide: 0,
       sergio: 2,
       jorge: 1
-    }.each do | name, maxibonsToGrab |
+    }.each do | developerName, maxibonsToGrab |
       property_of {
-        [ name, maxibonsToGrab ]
-      }.check { | name, maxibonsToGrab |
-        MaxibonKata::Developer.send( name ).
-                               maxibonsToGrab.must_equal maxibonsToGrab
+        [ developerName, maxibonsToGrab ]
+      }.check { | developer_name, maxibons_to_grab |
+        MaxibonKata::Developer.send( developer_name ).
+                               maxibonsToGrab.must_equal maxibons_to_grab
       }
     end
   end

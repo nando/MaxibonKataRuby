@@ -42,7 +42,7 @@ describe MaxibonKata::KarumiHQs do
   it "should request 10 more maxibons using the chat if there are less than 3 in the fridge" do
     property_of {
       MaxibonKata::Developer.new sized( 12 ){ string( :alpha ) },
-                                 range( 8, 1000 )
+                                 range( 8, 1000 ) # Hungry developer.
     }.check { | developer |
       chat = MaxibonKata::Chat.new
       office = MaxibonKata::KarumiHQs.new( chat )
@@ -51,8 +51,20 @@ describe MaxibonKata::KarumiHQs do
 
       chat.messageSent.must_equal "Hi guys, I'm #{developer.name}. We need more maxibons!"
     }
-
   end
 
+  it "should never request more maxibons to the team using the chat if there are more than 2 in the fridge" do
+    property_of {
+      MaxibonKata::Developer.new sized( 12 ){ string( :alpha ) },
+                                 range( 0, 7 ) # Not so hungry developer.
+    }.check { | developer |
+      chat = MaxibonKata::Chat.new
+      office = MaxibonKata::KarumiHQs.new( chat )
+
+      office.openFridge developer
+
+      chat.messageSent.must_be_nil
+    }
+  end
 
 end
