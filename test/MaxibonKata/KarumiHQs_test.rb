@@ -67,4 +67,18 @@ describe MaxibonKata::KarumiHQs do
     }
   end
 
+  it "should always has more than two maxibons in the fridge even if some karumies grab maxibons in group" do
+    property_of {
+      array( range( 2, 5) ) {
+        MaxibonKata::Developer.new(string, integer)
+      }
+    }.check { | developers |
+      office = MaxibonKata::KarumiHQs.new
+
+      office.openFridge developers
+
+      office.maxibonsLeft.must_be :>, 2
+    }
+  end
+
 end

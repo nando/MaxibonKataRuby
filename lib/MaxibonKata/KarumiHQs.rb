@@ -11,10 +11,14 @@ module MaxibonKata
       @chat = chat
     end
 
-    def openFridge( developer )
-      grab_maxibons developer
+    def openFridge( developer_or_developers )
+      developers = Array( developer_or_developers )
+      developers.each do | developer |
+        grab_maxibons developer
+      end
+
       if should_buy_more_maxibons?
-        notify_we_should_buy_maxibon( developer ) if @chat
+        notify_we_should_buy_maxibon( developers.last ) if @chat
         buy_maxibons
       end
     end
