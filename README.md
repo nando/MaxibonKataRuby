@@ -1,4 +1,4 @@
-= Kata Maxibon for Ruby. [![Build Status](https://travis-ci.org/nando/MaxibonKataRuby.svg?branch=master)](https://travis-ci.org/nando/MaxibonKataRuby)
+# Kata Maxibon for Ruby. [![Build Status](https://travis-ci.org/nando/MaxibonKataRuby.svg?branch=master)](https://travis-ci.org/nando/MaxibonKataRuby)
 ![The Cocktail logo][tcklogo] ❤ ![Karumi logo][karumilogo]
 
 - We are here to practice [property based testing][property-based-testing].
