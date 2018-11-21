@@ -1,5 +1,5 @@
-# Kata Maxibon for Ruby. [![Build Status](https://travis-ci.org/nando/MaxibonKataRuby.svg?branch=master)](https://travis-ci.org/nando/MaxibonKataRuby)
 ![The Cocktail logo][tcklogo] ❤ ![Karumi logo][karumilogo]
+# Kata Maxibon for Ruby. [![Build Status](https://travis-ci.org/nando/MaxibonKataRuby.svg?branch=master)](https://travis-ci.org/nando/MaxibonKataRuby)
 
 - We are here to practice [property based testing][property-based-testing].
 - We are going to use [Rantly][rantly] (with Minitest) to write our tests.
