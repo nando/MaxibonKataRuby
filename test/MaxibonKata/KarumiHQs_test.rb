@@ -81,4 +81,20 @@ describe MaxibonKata::KarumiHQs do
     }
   end
 
+  it "should buy 10 more maxibons if there are less than 2 in the fridge when grabbing maxibons in group" do
+    property_of {
+      array( range( 2, 5) ) {
+        MaxibonKata::Developer.new(string, integer)
+      }
+    }.check { | developers |
+      office = MaxibonKata::KarumiHQs.new
+      initial_maxibons = office.maxibonsLeft
+
+      office.openFridge developers
+
+      expected_maxibons = calculate_maxibons_left(initial_maxibons, developers)
+
+      office.maxibonsLeft.must_equal expected_maxibons
+    }
+  end
 end
