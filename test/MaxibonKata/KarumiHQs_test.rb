@@ -105,4 +105,16 @@ describe MaxibonKata::KarumiHQs do
     }
   end
 
+  it "never request more maxibons to the team using the chat if there are more than 2 in the fridge when grabbing maxibons in group" do
+    property_of {
+      developers_who_wont_grab_all_maxibons
+    }.check { | developers |
+      chat = MaxibonKata::Chat.new
+      office = MaxibonKata::KarumiHQs.new( chat )
+
+      office.openFridge developers
+
+      chat.messageSent.must_be_nil
+    }
+  end
 end

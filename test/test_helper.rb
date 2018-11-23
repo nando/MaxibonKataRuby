@@ -21,7 +21,7 @@ end
 
 def not_so_hungry_developer
   MaxibonKata::Developer.new sized( 8 ){ string( :upper ) },
-                             range( 0, 7 )
+                             range( 0, 2 )
 end
 
 def karumies_group
@@ -34,6 +34,10 @@ end
 
 def hungry_group
   array( range( 2, 10) ) { hungry_developer }
+end
+
+def developers_who_wont_grab_all_maxibons
+  array( range( 2, 3) ) { not_so_hungry_developer }
 end
 
 def calculate_maxibons_left(initial_maxibons, developers)
