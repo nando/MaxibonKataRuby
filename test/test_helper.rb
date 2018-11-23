@@ -6,11 +6,12 @@ require "minitest/autorun"
 Rantly.default_size = 10
 
 def calculate_maxibons_left(initial_maxibons, developers)
-  Array( developers ).inject( initial_maxibons ) do | acc, developer |
-    maxibons_left = [ acc - developer.maxibonsToGrab, 0 ].max
-    if maxibons_left <= MaxibonKata::KarumiHQs::MIN_MAXIBONS
-      maxibons_left += MaxibonKata::KarumiHQs::MAX_MAXIBONS
-    end
+  maxibons_left = Array( developers ).inject( initial_maxibons ) do | acc, developer |
+    [ acc - developer.maxibonsToGrab, 0 ].max
+  end
+  if maxibons_left > MaxibonKata::KarumiHQs::MIN_MAXIBONS
     maxibons_left
+  else
+    maxibons_left + MaxibonKata::KarumiHQs::MAX_MAXIBONS
   end
 end
