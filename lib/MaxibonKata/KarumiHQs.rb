@@ -30,11 +30,7 @@ module MaxibonKata
     end
 
     def grab_maxibons( developer )
-      @maxibonsLeft = if developer.maxibonsToGrab > @maxibonsLeft
-                        0
-                      else
-                        @maxibonsLeft - developer.maxibonsToGrab
-                      end
+      @maxibonsLeft = [ 0, @maxibonsLeft - developer.maxibonsToGrab ].max
     end
 
     def notify_we_should_buy_maxibon( developer )
