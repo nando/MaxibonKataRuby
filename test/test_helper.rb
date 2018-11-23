@@ -5,6 +5,33 @@ require "minitest/autorun"
 
 Rantly.default_size = 10
 
+def unpredicteble_developer
+  MaxibonKata::Developer.new(string, integer)
+end
+
+def karumi_developer
+  MaxibonKata::Developer.new sized( 8 ){ string( :upper ) },
+                             range( 0, 12 )
+end
+
+def hungry_developer
+  MaxibonKata::Developer.new sized( 8 ){ string( :upper ) },
+                             range( 13, 42 )
+end
+
+def not_so_hungry_developer
+  MaxibonKata::Developer.new sized( 8 ){ string( :upper ) },
+                             range( 0, 7 )
+end
+
+def karumies_group
+  array( range( 2, 5) ) { karumi_developer }
+end
+
+def developers_group
+  array( range( 2, 10) ) { unpredicteble_developer }
+end
+
 def calculate_maxibons_left(initial_maxibons, developers)
   maxibons_left = Array( developers ).inject( initial_maxibons ) do | acc, developer |
     [ acc - developer.maxibonsToGrab, 0 ].max

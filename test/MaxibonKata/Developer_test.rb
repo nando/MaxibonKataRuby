@@ -4,7 +4,7 @@ describe MaxibonKata::Developer do
 
   it "should always grab a positive number of maxibons" do
     property_of {
-      MaxibonKata::Developer.new(string, integer)
+      unpredicteble_developer
     }.check { | developer |
       developer.maxibonsToGrab.must_be :>=, 0
     }

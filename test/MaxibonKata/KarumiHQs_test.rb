@@ -12,8 +12,7 @@ describe MaxibonKata::KarumiHQs do
 
   it "should always has more than two maxibons in the fridge" do
     property_of {
-      MaxibonKata::Developer.new sized(12){ string(:alpha) },
-                                 integer
+      karumi_developer
     }.check { | developer |
       office = MaxibonKata::KarumiHQs.new
 
@@ -25,15 +24,15 @@ describe MaxibonKata::KarumiHQs do
 
   it "should buy 10 more maxibons if there are less than 3 in the fridge" do
     property_of {
-      MaxibonKata::Developer.new sized( 12 ){ string( :alpha ) },
-                                 range( 8, 1000 )
+      hungry_developer
     }.check { | developer |
       office = MaxibonKata::KarumiHQs.new
       initial_maxibons = office.maxibonsLeft
 
       office.openFridge developer
 
-      expected_maxibons = calculate_maxibons_left(initial_maxibons, developer)
+      expected_maxibons = calculate_maxibons_left( initial_maxibons,
+                                                   developer )
 
       office.maxibonsLeft.must_equal expected_maxibons
     }
@@ -41,22 +40,20 @@ describe MaxibonKata::KarumiHQs do
 
   it "should request 10 more maxibons using the chat if there are less than 3 in the fridge" do
     property_of {
-      MaxibonKata::Developer.new sized( 12 ){ string( :alpha ) },
-                                 range( 8, 1000 ) # Hungry developer.
+      hungry_developer
     }.check { | developer |
       chat = MaxibonKata::Chat.new
       office = MaxibonKata::KarumiHQs.new( chat )
 
       office.openFridge developer
 
-      chat.messageSent.must_equal "Hi guys, I'm #{developer.name}. We need more maxibons!"
+      chat.messageSent.must_equal "Hi guys, I'm #{ developer.name }. We need more maxibons!"
     }
   end
 
   it "should never request more maxibons to the team using the chat if there are more than 2 in the fridge" do
     property_of {
-      MaxibonKata::Developer.new sized( 12 ){ string( :alpha ) },
-                                 range( 0, 7 ) # Not so hungry developer.
+      not_so_hungry_developer
     }.check { | developer |
       chat = MaxibonKata::Chat.new
       office = MaxibonKata::KarumiHQs.new( chat )
@@ -69,9 +66,7 @@ describe MaxibonKata::KarumiHQs do
 
   it "should always has more than two maxibons in the fridge even if some karumies grab maxibons in group" do
     property_of {
-      array( range( 2, 5) ) {
-        MaxibonKata::Developer.new(string, integer)
-      }
+      karumies_group
     }.check { | developers |
       office = MaxibonKata::KarumiHQs.new
 
@@ -83,18 +78,18 @@ describe MaxibonKata::KarumiHQs do
 
   it "should buy 10 more maxibons if there are less than 2 in the fridge when grabbing maxibons in group" do
     property_of {
-      array( range( 2, 5) ) {
-        MaxibonKata::Developer.new(string, integer)
-      }
+      developers_group
     }.check { | developers |
       office = MaxibonKata::KarumiHQs.new
       initial_maxibons = office.maxibonsLeft
 
       office.openFridge developers
 
-      expected_maxibons = calculate_maxibons_left(initial_maxibons, developers)
+      expected_maxibons = calculate_maxibons_left( initial_maxibons,
+                                                   developers )
 
       office.maxibonsLeft.must_equal expected_maxibons
     }
   end
+
 end
