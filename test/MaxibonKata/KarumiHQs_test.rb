@@ -92,4 +92,17 @@ describe MaxibonKata::KarumiHQs do
     }
   end
 
+  it "should request 10 more maxibons using the chat if there are less than 3 in the fridge when grabbing maxibons in group" do
+    property_of {
+      hungry_group
+    }.check { | developers |
+      chat = MaxibonKata::Chat.new
+      office = MaxibonKata::KarumiHQs.new( chat )
+
+      office.openFridge developers
+
+      chat.messageSent.must_include "We need more maxibons!"
+    }
+  end
+
 end

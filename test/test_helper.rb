@@ -32,6 +32,10 @@ def developers_group
   array( range( 2, 10) ) { unpredicteble_developer }
 end
 
+def hungry_group
+  array( range( 2, 10) ) { hungry_developer }
+end
+
 def calculate_maxibons_left(initial_maxibons, developers)
   maxibons_left = Array( developers ).inject( initial_maxibons ) do | acc, developer |
     [ acc - developer.maxibonsToGrab, 0 ].max
